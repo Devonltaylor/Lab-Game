@@ -1,4 +1,4 @@
-
+// Asking to play game
 function startGame () {
   var playGame = prompt ("Would you like to play a game?");
   if (playGame === "yes") {
@@ -7,19 +7,36 @@ function startGame () {
   }
 }
 
-startGame();
+startGame(); // Starts Game
 
-function startCombat(name) {
-    var username = name;
-    var userPoints = 40;
-    var computerPoints = 10;
-    var computerLives = 0;
+function startCombat(playerName) {
+    var username = {
+      health = 40; //health for user
+      heal = 2;
+      name = Playername;
+      gamesWon: 0;
+      playerAttackDamage: function(){
+          return Math.floor(Math.random() *3) + 1;
 
-    function getDamage() {
-      return Math.floor(Math.random() *5) + 1;
-
-
+      healing: function(){
+          return Math.floor(Math.random() *10) + 1;
+      }
     }
+}
+};
+
+
+// for the computer
+var computer = {
+  Lives= 10; //health for computer
+  name: "The all Mighty Grant"
+  gamesWon: 0;
+  grantAttackDamage: function(){
+      return Math.floor(Math.random() *5) + 1;
+ }
+};
+
+    //Games is being played
     while (userPoints > 0) {
       var fightAgain = prompt ("attack or quit");
 
@@ -39,6 +56,8 @@ function startCombat(name) {
             computerLives++;
             console.log("You've won this round " + computerLives + " rounds to go.");
           }
+
+    // this will end the game if the user types quit
       } else if (fightAgain.toLowerCase() === "quit") {
          console.log("Come back when your ready!");
          break;
