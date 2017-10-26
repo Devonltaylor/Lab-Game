@@ -1,66 +1,74 @@
-// Asking to play game
-function startGame () {
-  var playGame = prompt ("Would you like to play a game?");
-  if (playGame === "yes") {
-    var username = prompt ("Please enter your name");
-    startCombat(username);
-  }
-}
 
-startGame(); // Starts Game
-
-function startCombat(playerName) {
-    var username = {
-      health = 40; //health for user
-      heal = 2;
-      name = Playername;
-      gamesWon: 0;
-      playerAttackDamage: function(){
-          return Math.floor(Math.random() *3) + 1;
-
-      healing: function(){
-          return Math.floor(Math.random() *10) + 1;
-      }
+// Start of the game
+var start = document.getElementById("start");
+var userName=""
+start.onclick =  function () {
+    var userName = prompt("what is your name");
+    hide(userName);
+    function hide (userName) {
+    document.getElementById("start").style.display="none";
+    document.getElementById("second_page").style.display="block";
     }
 }
+
+var healButton = document.getElementById("heal");
+  healButton.onclick = function () {
+  player.heal();
+  document.getElementById("healStatus").value = (player.healCount += 1);
+};
+
+var quitButton = document.getElementById("quit");
+  quitButton.onclick = function () {
+    alert("GAME OVER");
+};
+
+//characters traits
+
+var player = {
+  name: "",
+  healthPoints: 40,
+  wins: 0,
+  healCount: 0,
+  generateAttackDamage: function () {
+    return Math.floor(Math.random() * 3) + 1
+  },
+  heal: function () {
+    this.healthPoints += Math.floor(Math.random() * 10) + 1}
+  };
+// Grants traits
+var grant = {
+  name: "Almighty Grant",
+  health: 10,
+  generateAttackDamage: function () {
+    return Math.floor(Math.random() * 3) + 1
+  }
 };
 
 
-// for the computer
-var computer = {
-  Lives= 10; //health for computer
-  name: "The all Mighty Grant"
-  gamesWon: 0;
-  grantAttackDamage: function(){
-      return Math.floor(Math.random() *5) + 1;
- }
+// attack function
+var startAttack = document.getElementById("attack");
+attack.onclick =  function (startCombat) {
+    player.healthPoints -= grant.generateAttackDamage();
+    grant.health -= player.generateAttackDamage();
+    document.getElementById("playerSpan").innerHTML = player.healthPoints;
+    document.getElementById("grantSpan").innerHTML = grant.health;
+
+    document.getElementById("playerStatus").value = (player.healthPoints -= grant.generateAttackDamage());
+    document.getElementById("grantStatus").value = (grant.health -= player.generateAttackDamage());
+
+
+  if (grant.health <=0 && player.healthPoints > 0) {
+      player.wins ++;
+      grant.health=10;
+      if (player.wins < 3) {
+        grant.health = 10;
+      }
+    }
+
+if (grant.health <= 0 && player.healthPoints>0) {
+  grant.health - 10
+  palyer.wins ++;
+  document.getElementById("wins").value=player.wins;
+
+}
 };
-
-    //Games is being played
-    while (userPoints > 0) {
-      var fightAgain = prompt ("attack or quit");
-
-      if (fightAgain.toLowerCase() === "attack") {
-        userPoints -= Math.floor(Math.random() *2) + 1;
-        computerPoints -= Math.floor(Math.random() *2) + 1;
-        console.log(username + " health points " + userPoints);
-        console.log("Almighty Grants " + " health points " + computerPoints);
-
-          if (userPoints <= 0) {
-            console.log("You Lost!")
-          } else if (computerPoints <=0 && computerLives === 2) {
-            console.log("You Win!");
-
-          } else if (computerPoints <=0) {
-            computerPoints = 10;
-            computerLives++;
-            console.log("You've won this round " + computerLives + " rounds to go.");
-          }
-
-    // this will end the game if the user types quit
-      } else if (fightAgain.toLowerCase() === "quit") {
-         console.log("Come back when your ready!");
-         break;
-       }
-     }
-   }

@@ -1,0 +1,27 @@
+
+
+body {
+  background-color: lightblue;
+}
+
+button {
+  background-color: teal;
+  color: white;
+  font-family: ;
+  border: ;
+
+}
+
+div {
+  display: block;
+  text-align: center;
+}
+
+#first_page {
+ /*display:  content;*/
+}
+
+#second_page {
+  /*display: none;*/
+  border: 3px solid black;
+}
