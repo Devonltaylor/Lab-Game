@@ -2,14 +2,19 @@
 
 body {
   background-color: lightblue;
+
 }
 
 button {
   background-color: teal;
   color: white;
   font-family: ;
-  border: ;
-
+  border:1px solid black ;
+  width: 100px;
+  height: 50px;
+  margin-bottom: 20px;
+  font-family: 'Slabo 27px', serif;
+  font-size: 20px;
 }
 
 div {
@@ -24,4 +29,9 @@ div {
 #second_page {
   /*display: none;*/
   border: 3px solid black;
+}
+
+.Stat {
+  font-size: 15px;
+  font-family: 'Slabo 27px', serif;
 }

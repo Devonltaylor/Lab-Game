@@ -3,26 +3,28 @@
 <head>
   <meta charset="utf-8">
   <link rel = "stylesheet" type = "text/css" href = "styles.css">
-
-  <title>Lab 2 Part 4 </title>
+  <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+  <title>Lab 2 Part 4</title>
 </head>
   <body>
     <div id="first_page"> <button id="start" type="button">Start</button> </div>
 
-    <div id="second_page">
-          <button id= "attack" type="button">Attack</button>
-          <button id= "heal" type="button">Heal</button>
-          <button id= "quit" type="button">Quit</button>
+<div>
+    <button id= "attack" type="button">Attack</button>
+    <button id= "heal" type="button">Heal</button>
+    <button id= "quit" type="button">Quit</button>
+</div>
 
+    <div id="second_page">
           <p> Player status: <span id="playerSpan" >  </span> </p>
           <p> Grant's Status: <span id="grantSpan" > </span> </p>
 
           <div>
-            <h5>Player Stats</h5>
+            <h5 class="Stat">Player Stats</h5>
 
             Current status <progress id="playerStatus" value="40" max="40"></progress>
             Healing status <progress id="healStatus" value="0" max="2"></progress>
-            <h5> Enemy Stat </h5>
+            <h5 class="Stat"> Enemy Stat </h5>
              Grant's current status <progress id="grantStatus" value="10" max="10"></progress>
           Number of wins  <progress id="wins" value="0" max="5"></progress>
         </div>
